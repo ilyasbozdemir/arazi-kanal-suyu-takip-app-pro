@@ -319,10 +319,17 @@ export const startLanServerInternal = async (port: number = 7070): Promise<any> 
   });
 };
 
+export const stopLanServerInternal = () => {
+  if (lanServer) {
+    try { lanServer.close(); } catch (e) {}
+    lanServer = null;
+  }
+};
+
 export const setupServerHandlers = () => {
   ipcMain.handle('toggle-lan-server', async (_, opts: { active: boolean, port: number }) => {
     if (!opts.active) {
-      if (lanServer) { lanServer.close(); lanServer = null; }
+      stopLanServerInternal();
       return { success: true, active: false };
     }
     return await startLanServerInternal(opts.port);

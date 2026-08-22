@@ -21,7 +21,8 @@ import {
   registerSystemHandlers,
   getMailSettings,
   sendBackupInternal,
-  startLanServerInternal
+  startLanServerInternal,
+  stopLanServerInternal
 } from './handlers'
 import { runAutoBackup } from './db-helpers/backup'
 import { VaultService } from './vault'
@@ -64,6 +65,7 @@ let mainWindow: BrowserWindow | null = null
 const gotTheLock = app.requestSingleInstanceLock()
 if (!gotTheLock) {
   app.quit()
+  process.exit(0)
 } else {
   app.on('second-instance', () => {
     if (mainWindow) {
@@ -357,5 +359,9 @@ app.on('certificate-error', (event, _webContents, url, _error, _certificate, cal
   }
 });
 
-app.on('window-all-closed', () => { if (process.platform !== 'darwin') app.quit() })
+app.on('before-quit', () => {
+  stopLanServerInternal();
+});
+
+app.on('window-all-closed', () => { if (process.platform !== 'darwin') app.quit() });
 
