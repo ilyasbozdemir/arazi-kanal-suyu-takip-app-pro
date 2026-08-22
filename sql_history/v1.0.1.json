@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "migratedTo": "1.0.1",
+  "migrationDate": "2026-03-22",
+  "title": "Kurum Başkanlığı UI Ergonomisi",
+  "description": "Kullanıcı arayüzünde ilk sarsılmaz dokunuşlar.",
+  "notes": "Sidebar ve üst bar navigasyon yapısı Kurum Başkanlığı kurumsal renklerine uyarlandı.",
+  "changes": ["Sidebar tasarımı", "Kurumsal renkler"]
+}

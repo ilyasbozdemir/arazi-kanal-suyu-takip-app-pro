@@ -1,0 +1,46 @@
+{
+  "version": "2.7.5",
+  "migratedTo": "3.0.0-beta.1",
+  "migrationDate": "2026-05-02",
+  "title": "Municipal Engine & Multi-Owner Architecture Rebirth",
+  "description": "Uygulama mimarisi profesyonel standartlara taşındı. IPC handler'lar modüler hale getirildi, mülkiyet yapısı çoklu hissedar desteği ve görsel popover'lar ile zırhlandırıldı.",
+  "notes": "Bu sürüm, v3.0.0 kararlı sürümü öncesindeki en kapsamlı altyapı modernizasyonudur. Veri girişi otomatize edilmiş ve veritabanı ilişkileri tam şeffaflıkla arayüze yansıtılmıştır.",
+  "changes": [
+    "MODÜLER HANDLER MİMARİSİ: data.ts dosyası parçalanarak System, Record, Query, Ledger ve Export olarak kategorize edildi",
+    "MEVKİ KAYIT DEVRİMİ: Mevki yönetim ekranı pasif bir kart görünümünden, akıllı konum seçimi (İl/İlçe/Mahalle) sunan profesyonel bir forma dönüştürüldü",
+    "ÇOKLU HİSSEDAR GÖRÜNÜRLÜĞÜ: Tapu kartlarına gerçek zamanlı hissedar sayımı ve detaylı popover (isim + hisse oranı) desteği eklendi",
+    "AKILLI KONUM OTOMASYONU: Merkez İl/Merkez İlçe hiyerarşisi veritabanından otomatik çekilerek formların dolu gelmesi sağlandı",
+    "VERİ BÜTÜNLÜĞÜ (UPSERT): Mevki kayıtlarındaki UNIQUE constraint hataları, 'varsa güncelle yoksa ekle' mantığı ile kalıcı olarak çözüldü"
+  ],
+  "testResults": {
+    "summary": "✅ TÜM MİMARİ PARÇALAMA VE PAYDAŞ İLİŞKİ TESTLERİ BAŞARIYLA TAMAMLANDI",
+    "checks": [
+      { "name": "IPC Handler Modülerizasyon Testi", "status": "PASSED" },
+      { "name": "Çoklu Paydaş Sayma ve Popover Gösterimi", "status": "PASSED" },
+      { "name": "Mevki Formu Hiyerarşik Konum Seçimi", "status": "PASSED" },
+      { "name": "Unique Constraint (Mevki Adı) Çözümü", "status": "PASSED" },
+      { "name": "TANIM_Konumlar Veri Entegrasyonu", "status": "PASSED" }
+    ]
+  },
+  "schemaSnapshot": [
+    {
+      "name": "DATA_Tasinmaz_Mevki_Listesi",
+      "columns": [
+        { "name": "id", "type": "TEXT", "constraints": ["PRIMARY KEY"] },
+        { "name": "Mevki_Adi", "type": "TEXT", "constraints": ["UNIQUE", "NOT NULL"] },
+        { "name": "Konum_id", "type": "TEXT" },
+        { "name": "Aciklama", "type": "TEXT" }
+      ]
+    },
+    {
+      "name": "TASINMAZ_SAHIP",
+      "columns": [
+        { "name": "id", "type": "TEXT", "constraints": ["PRIMARY KEY"] },
+        { "name": "Tasinmaz_id", "type": "TEXT" },
+        { "name": "Vatandas_TCKN", "type": "TEXT" },
+        { "name": "Hisse_Pay", "type": "INTEGER" },
+        { "name": "Hisse_Payda", "type": "INTEGER" }
+      ]
+    }
+  ]
+}

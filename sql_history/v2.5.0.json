@@ -1,0 +1,55 @@
+{
+  "version": "2.4.2",
+  "migratedTo": "2.5.0",
+  "migrationDate": "2026-04-23",
+  "title": "Sarsılmaz Mevki Otomasyonu & Personel Entegrasyon Sürümü",
+  "description": "Taşınmaz ve Personel yönetiminde Mevki/Kişi otomasyonu ve şema snapshot protokolü devreye alındı.",
+  "notes": "Mevki otomasyonu ile mükerrer kayıtlar engellendi. Personel (Merav) kayıtları Citizen rehberi ile entegre edildi. DATA_Mevki_Bilgisi tablosu sisteme tam dahil edildi.",
+  "changes": [
+    "Mevki Otomasyon Sistemi (LandService) devreye alındı",
+    "Personel (TANIM_Personel) ekranına Citizen Selector eklendi",
+    "Mevki Selector (MevkiField) tüm ilgili alanlar için aktif edildi",
+    "DATA_Mevki_Bilgisi şemaya eklendi ve Raporlar ekranı onarıldı",
+    "Genel Kayıt Görünümü (GeneralEntityDetailView) optimize edildi"
+  ],
+  "testResults": {
+    "summary": "✅ TÜM KRİTİK TESTLER BAŞARIYLA TAMAMLANDI",
+    "checks": [
+      { "name": "Paket Sürümü", "status": "PASSED" },
+      { "name": "SQL Tarihçe Bütünlüğü", "status": "PASSED" },
+      { "name": "Mevki Otomasyon Mantığı", "status": "PASSED" },
+      { "name": "Veritabanı Şema Tanımı", "status": "PASSED" }
+    ]
+  },
+  "schemaSnapshot": [
+    {
+      "name": "DATA_Mevki_Bilgisi",
+      "columns": [
+        { "name": "id", "type": "TEXT", "constraints": ["PRIMARY KEY"] },
+        { "name": "Mevki_Adi", "type": "TEXT", "constraints": ["UNIQUE"] },
+        { "name": "Tarim_Sinifi", "type": "TEXT" },
+        { "name": "Merkeze_Uzaklik", "type": "REAL" }
+      ]
+    },
+    {
+      "name": "TANIM_Personel",
+      "columns": [
+        { "name": "id", "type": "TEXT", "constraints": ["PRIMARY KEY"] },
+        { "name": "Vatandas_id", "type": "TEXT" },
+        { "name": "Ad_Soyad", "type": "TEXT" },
+        { "name": "Unvan", "type": "TEXT" },
+        { "name": "Sorumlu_Bolge_id", "type": "TEXT" }
+      ]
+    },
+    {
+      "name": "DATA_Tapu_Verisi",
+      "columns": [
+        { "name": "id", "type": "TEXT", "constraints": ["PRIMARY KEY"] },
+        { "name": "Mevki", "type": "TEXT" },
+        { "name": "Mevki_id", "type": "TEXT" },
+        { "name": "Ada", "type": "INTEGER" },
+        { "name": "Parsel", "type": "INTEGER" }
+      ]
+    }
+  ]
+}

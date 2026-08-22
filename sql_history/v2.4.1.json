@@ -1,0 +1,63 @@
+{
+  "version": "2.4.0",
+  "migratedTo": "2.4.1",
+  "migrationDate": "2026-04-23",
+  "title": "Kurum Başkanlığı Elite UI & Tarihçe",
+  "description": "Sistem genelinde prestij ve sarsılmaz görsellik güncellemesi.",
+  "notes": "Ayarlar menüsü modern sidebar yapısına geçirildi. İnteraktif Sürüm Tarihçesi (Timeline) ve Elite UI bileşenleri sisteme dahil edildi. Bu sürümden itibaren her güncelleme tam DB Şema Snapshot'ı içerecektir.",
+  "changes": [
+    "Elite Sidebar Ayarlar Navigasyonu",
+    "IPC tabanlı ultra-hızlı Tarihçe Sistemi",
+    "Premium Timeline (Zaman Çizelgesi) UI",
+    "Sarsılmaz Şema Snapshot Sistemi Aktif Edildi"
+  ],
+  "schemaSnapshot": [
+    {
+      "name": "DATA_Vatandas",
+      "columns": [
+        { "name": "id", "type": "TEXT" },
+        { "name": "TCKN", "type": "TEXT" },
+        { "name": "Ad", "type": "TEXT" },
+        { "name": "Soyad", "type": "TEXT" },
+        { "name": "Cinsiyet", "type": "TEXT" },
+        { "name": "Durum", "type": "TEXT" }
+      ]
+    },
+    {
+      "name": "DATA_Tapu_Verisi",
+      "columns": [
+        { "name": "id", "type": "TEXT" },
+        { "name": "Tasinmaz_No", "type": "TEXT" },
+        { "name": "Ada", "type": "TEXT" },
+        { "name": "Parsel", "type": "TEXT" },
+        { "name": "Alan_m2", "type": "REAL" }
+      ]
+    },
+    {
+      "name": "MUHASEBE_Kasa_Hareketleri",
+      "columns": [
+        { "name": "id", "type": "TEXT" },
+        { "name": "Tarih", "type": "TEXT" },
+        { "name": "Tür", "type": "TEXT" },
+        { "name": "Miktar", "type": "REAL" },
+        { "name": "Islem_Hash", "type": "TEXT" }
+      ]
+    },
+    {
+      "name": "DATA_Tahakkuk",
+      "columns": [
+        { "name": "id", "type": "TEXT" },
+        { "name": "Miktar", "type": "REAL" },
+        { "name": "Tarih", "type": "TEXT" }
+      ]
+    },
+    {
+      "name": "DATA_LIMIT_ASIMLARI",
+      "columns": [
+        { "name": "id", "type": "TEXT" },
+        { "name": "Kullanim_Miktari", "type": "REAL" },
+        { "name": "Asim_Miktari", "type": "REAL" }
+      ]
+    }
+  ]
+}

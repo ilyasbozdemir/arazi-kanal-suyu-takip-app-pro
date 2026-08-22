@@ -1,0 +1,9 @@
+{
+  "version": "2.1.0",
+  "migratedTo": "2.2.0",
+  "migrationDate": "2026-04-18",
+  "title": "Kurum Başkanlığı CBS v2",
+  "description": "Harita üzerinde parsel çizimi ve alan ölçümü araçları.",
+  "notes": "Parsellerin harita üzerinde çizilmesi ve koordinat bazlı sarsılmaz CBS verisi depolama özelliği eklendi.",
+  "changes": ["Parsel çizimi", "Koordinat takibi"]
+}

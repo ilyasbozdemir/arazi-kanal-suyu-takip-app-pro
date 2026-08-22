@@ -1,0 +1,9 @@
+{
+  "version": "1.4.0",
+  "migratedTo": "1.5.0",
+  "migrationDate": "2026-03-31",
+  "title": "Kurum Başkanlığı Finansal Güvenlik",
+  "description": "Kasa ve tahsilat verilerinin sarsılmaz hash zinciri ile korunması.",
+  "notes": "Blockchain mantığı ile SHA-256 hash zinciri kuruldu. Virman ve Kasa Hareketleri UI modernize edildi.",
+  "changes": ["Hash zinciri güvenliği", "Kasa yönetim UI"]
+}

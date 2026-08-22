@@ -1,0 +1,9 @@
+{
+  "version": "1.7.0",
+  "migratedTo": "1.8.0",
+  "migrationDate": "2026-04-06",
+  "title": "Kurum Başkanlığı Tahakkuk v1",
+  "description": "Otomatik borçlandırma ve sulama bedeli tahakkuk motoru.",
+  "notes": "M2 ve süre bazlı tahakkuk hesaplama algoritmaları Kurum Başkanlığı standartlarına göre aktif edildi.",
+  "changes": ["Tahakkuk motoru", "Borçlandırma kuralları"]
+}

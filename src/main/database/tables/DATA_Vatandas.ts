@@ -1,0 +1,40 @@
+import { defineTable } from '../BaseTable';
+
+export const DATA_Vatandas = defineTable({
+  name: 'DATA_Vatandas',
+  description: 'Kişilerin kimlik ve iletişim bilgilerinin tutulduğu ana tablo',
+  hasAudit: true,
+  columns: [
+    { name: 'id', type: 'TEXT', constraints: ['PRIMARY KEY'] },
+    { name: 'Sicil_No', type: 'TEXT', constraints: ['UNIQUE', 'INDEXED'] },
+    { name: 'Tur', type: 'TEXT' },
+    { name: 'TCKN', type: 'TEXT', constraints: ['UNIQUE', 'INDEXED'] },
+    { name: 'Vergi_Dairesi', type: 'TEXT' },
+    { name: 'Vergi_No', type: 'TEXT' },
+    { name: 'Ad', type: 'TEXT' },
+    { name: 'Soyad', type: 'TEXT' },
+    { name: 'Unvan', type: 'TEXT' },
+    { name: 'Baba_Adi', type: 'TEXT' },
+    { name: 'Ana_Adi', type: 'TEXT' },
+    { name: 'Dogum_Yeri', type: 'TEXT' },
+    { name: 'Dogum_Tarihi', type: 'TEXT' },
+    { name: 'Cinsiyet', type: 'TEXT' },
+    { name: 'Seri_No', type: 'TEXT' },
+    { name: 'Il', type: 'TEXT' },
+    { name: 'Ilce', type: 'TEXT' },
+    { name: 'Mahalle_Koy', type: 'TEXT' },
+    { name: 'Cilt_No', type: 'TEXT' },
+    { name: 'Aile_Sira_No', type: 'TEXT' },
+    { name: 'Uyruk', type: 'TEXT' },
+    { name: 'Telefon', type: 'TEXT' },
+    { name: 'Cep_Telefonu', type: 'TEXT' },
+    { name: 'Eposta', type: 'TEXT' },
+    { name: 'Adres_Turu', type: 'TEXT' },
+    { name: 'Adres', type: 'TEXT' },
+    { name: 'Olum_Tarihi', type: 'TEXT' },
+    { name: 'Durum', type: 'TEXT', constraints: ["DEFAULT 'Aktif'"] },
+    { name: 'Excel_Aktarimi', type: 'INTEGER', constraints: ['DEFAULT 0'] },
+    { name: 'Profil_Foto_Yolu', type: 'TEXT' },
+    { name: 'Meslek', type: 'TEXT' }
+  ]
+});

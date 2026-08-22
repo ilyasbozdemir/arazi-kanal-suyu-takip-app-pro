@@ -1,0 +1,9 @@
+{
+  "version": "2.3.0",
+  "migratedTo": "2.4.0",
+  "migrationDate": "2026-04-22",
+  "title": "Kurum Başkanlığı Secure Vault",
+  "description": "Veri güvenliği için sarsılmaz şifreleme ve sistem ayarları.",
+  "notes": "AES-256 tabanlı Secure Vault ve sistem parametreleri için yeni ayarlar altyapısı kuruldu.",
+  "changes": ["Veri şifreleme", "Sistem ayarları UI"]
+}

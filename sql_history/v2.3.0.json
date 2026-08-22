@@ -1,0 +1,9 @@
+{
+  "version": "2.2.0",
+  "migratedTo": "2.3.0",
+  "migrationDate": "2026-04-21",
+  "title": "Kurum Başkanlığı Merav & Dönem",
+  "description": "Sulama sezonları ve Merav personeli görevlendirme yönetimi.",
+  "notes": "Dönemlik sulama takibi ve defterlerden sorumlu Merav atama paneli sarsılmaz bir disiplinle yayına alındı.",
+  "changes": ["Merav görevlendirme", "Dönem yönetimi"]
+}

@@ -1,0 +1,50 @@
+{
+  "version": "2.5.0",
+  "migratedTo": "2.7.1",
+  "migrationDate": "2026-04-23",
+  "title": "Sarsılmaz Mali Nizam & Hazırlık Rehberi Sürümü",
+  "description": "Tahsilat mutabakatı, kasa-zimmet yönetimi ve sezonluk hazırlık rehberi entegrasyonu tamamlandı.",
+  "notes": "Kurum muhasebe şeffaflık ve personelin sezonluk hazırlıkları için rehberlik modülü devreye alındı. Excel üzerinden toplu veri aktarımı zırhlandırıldı.",
+  "changes": [
+    "SULAMA SEZONU HAZIRLIK REHBERİ (Dashboard) devreye alındı",
+    "Kasa ve Zimmet Personel entegrasyonu (TANIM_Kasalar) zırhlandırıldı",
+    "Tahsilat ve Mutabakat (Kasa Hareketleri) paneli eklendi",
+    "Excel Toplu Mükellef Aktarımı (excel_advanced_mapping) mühürlendi",
+    "Dönem Arşivleme (Mahalle Defteri) ve Görünürlük (Ghosting) hataları giderildi",
+    "Erişilebilirlik (A11y) ve UI/UX profesyonel rötüşları tamamlandı"
+  ],
+  "testResults": {
+    "summary": "✅ TÜM MALİ VE İDARİ TESTLER BAŞARIYLA TAMAMLANDI",
+    "checks": [
+      { "name": "Paket Sürümü (v2.7.1)", "status": "PASSED" },
+      { "name": "Kasa-Zimmet Bağlantısı", "status": "PASSED" },
+      { "name": "Dağıtım Defteri Filtre Mantığı", "status": "PASSED" },
+      { "name": "Excel Aktarım Protokolü", "status": "PASSED" },
+      { "name": "Dönem Arşivleme Mantığı", "status": "PASSED" }
+    ]
+  },
+  "schemaSnapshot": [
+    {
+      "name": "TANIM_Kasalar",
+      "columns": [
+        { "name": "id", "type": "TEXT", "constraints": ["PRIMARY KEY"] },
+        { "name": "Kasa_Adi", "type": "TEXT" },
+        { "name": "Zimmet_id", "type": "TEXT" },
+        { "name": "Konum", "type": "TEXT" },
+        { "name": "Bakiye", "type": "REAL" },
+        { "name": "Aktif", "type": "INTEGER" }
+      ]
+    },
+    {
+      "name": "MUHASEBE_Kasa_Hareketleri",
+      "columns": [
+        { "name": "id", "type": "TEXT", "constraints": ["PRIMARY KEY"] },
+        { "name": "Kasa_id", "type": "TEXT" },
+        { "name": "Fis_id", "type": "TEXT" },
+        { "name": "Tur", "type": "TEXT" },
+        { "name": "Miktar", "type": "REAL" },
+        { "name": "Tarih", "type": "TEXT" }
+      ]
+    }
+  ]
+}

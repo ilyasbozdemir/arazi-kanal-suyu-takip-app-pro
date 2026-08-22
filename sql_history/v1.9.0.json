@@ -1,0 +1,9 @@
+{
+  "version": "1.8.0",
+  "migratedTo": "1.9.0",
+  "migrationDate": "2026-04-08",
+  "title": "Kurum Başkanlığı Personel Modülü",
+  "description": "Kurum personeli ve görev tanımları için sarsılmaz yönetim.",
+  "notes": "Personel özlük bilgileri ve yetki seviyeleri için veritabanı altyapısı hazırlandı.",
+  "changes": ["Personel yönetimi", "Yetkilendirme"]
+}

@@ -1,0 +1,16 @@
+node_modules
+dist
+out
+.git
+.gitignore
+.vscode
+.idea
+*.db
+*.db-journal
+*.xlsx
+*.xls
+*.exe
+README.md
+npm-debug.log*
+pnpm-debug.log*
+.DS_Store

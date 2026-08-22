@@ -1,0 +1,9 @@
+{
+  "version": "1.5.0",
+  "migratedTo": "1.5.1",
+  "migrationDate": "2026-04-01",
+  "title": "Kurum Başkanlığı Virman Modülü",
+  "description": "Kasalar arası güvenli para transferi (Virman) altyapısı.",
+  "notes": "Transferlerin sarsılmaz bir şekilde kayıt altına alınması ve kasa bakiyelerinin anlık güncellenmesi sağlandı.",
+  "changes": ["Virman işlemleri", "Bakiye senkronizasyonu"]
+}

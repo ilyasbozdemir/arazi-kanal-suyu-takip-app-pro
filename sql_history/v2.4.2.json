@@ -1,0 +1,32 @@
+{
+  "version": "2.4.1",
+  "migratedTo": "2.4.2",
+  "migrationDate": "2026-04-23",
+  "title": "Kurum Başkanlığı Mevki & Rapor Onarımı",
+  "description": "Raporlar ekranındaki veri bağlantı hataları ve eksik tablolar giderildi.",
+  "notes": "DATA_Mevki_Bilgisi tablosu şemaya eklendi. ReportsScreen içerisindeki Mevki raporu hatalı tablo isminden arındırılıp senkronize edildi.",
+  "changes": [
+    "DATA_Mevki_Bilgisi tablo entegrasyonu",
+    "ReportsScreen Mevki Listesi onarımı",
+    "Package.json sürüm senkronizasyonu (v2.4.2)"
+  ],
+  "schemaSnapshot": [
+    {
+      "name": "DATA_Mevki_Bilgisi",
+      "columns": [
+        { "name": "id", "type": "TEXT" },
+        { "name": "Mevki_Adi", "type": "TEXT" },
+        { "name": "Tarim_Sinifi", "type": "TEXT" },
+        { "name": "Merkeze_Uzaklik", "type": "REAL" }
+      ]
+    },
+    {
+      "name": "DATA_Vatandas",
+      "columns": [
+        { "name": "id", "type": "TEXT" },
+        { "name": "Ad", "type": "TEXT" },
+        { "name": "Soyad", "type": "TEXT" }
+      ]
+    }
+  ]
+}

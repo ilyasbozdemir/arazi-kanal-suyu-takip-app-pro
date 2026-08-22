@@ -1,0 +1,9 @@
+{
+  "version": "2.0.0",
+  "migratedTo": "2.1.0",
+  "migrationDate": "2026-04-15",
+  "title": "Kurum Başkanlığı Kurumsal Kimlik",
+  "description": "Arayüzün sarsılmaz bir kurumsal kimliğe kavuşturulması.",
+  "notes": "Logo yönetimi, kurumsal renkler ve profil fotoğrafı desteği sisteme sarsılmaz bir görsellik kattı.",
+  "changes": ["Logo yönetimi", "Profil resmi desteği"]
+}

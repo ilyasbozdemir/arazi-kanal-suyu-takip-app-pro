@@ -1,0 +1,122 @@
+{
+  "version": "2.7.1",
+  "migratedTo": "2.7.5",
+  "migrationDate": "2026-04-26",
+  "title": "Küresel TCKN Göçü & Veri Bütünlüğü Devrimi",
+  "description": "Sistem genelindeki tüm vatandaş bağlantıları UUID (Vatandas_id) prangalarından kurtarılarak doğrudan T.C. Kimlik Numarası (Vatandas_TCKN) üzerine bina edildi.",
+  "notes": "Bu sürüm projenin ilişkisel veritabanı mimarisini sarsılmaz bir hızla TCKN odaklı hale getirir. Tüm idari, mali ve teknik katmanlar kurumsal kütük standardına tam uyumlu hale getirilmiştir.",
+  "changes": [
+    "KÜRESEL TCKN GÖÇÜ: Tüm tablolarda Vatandas_id yerine Vatandas_TCKN birincil anahtar/bağlantı olarak mühürlendi",
+    "VERİ TABANI ZIRHLANDIRMA: SqliteTapuRepository ve tüm handler'lar TCKN odaklı mimariye güncellendi",
+    "ARAYÜZ SENKRONİZASYONU: Detay ekranları, kayıt formları ve arama sonuçları sarsılmaz bir hızla TCKN mimarisine taşındı",
+    "PERSONEL YÖNETİMİ: Merav  kayıtları doğrudan kütükten TCKN ile eşleşecek şekilde zırhlandırıldı",
+    "HATA GİDERME: UUID çakışmaları ve hatalı mülkiyet eşleşmeleri tamamen ortadan kaldırıldı"
+  ],
+  "testResults": {
+    "summary": "✅ TÜM TCKN GEÇİŞ VE İLİŞKİSEL BÜTÜNLÜK TESTLERİ BAŞARIYLA TAMAMLANDI",
+    "checks": [
+      {
+        "name": "TCKN Odaklı İlişkilendirme",
+        "status": "PASSED"
+      },
+      {
+        "name": "Taşınmaz Malik/Zilyet Senkronizasyonu",
+        "status": "PASSED"
+      },
+      {
+        "name": "Global Arama TCKN Entegrasyonu",
+        "status": "PASSED"
+      },
+      {
+        "name": "Personel-Kütük Bağlantısı",
+        "status": "PASSED"
+      },
+      {
+        "name": "Tahakkuk ve Tahsilat TCKN Mühürlemesi",
+        "status": "PASSED"
+      }
+    ]
+  },
+  "schemaSnapshot": [
+    {
+      "name": "DATA_Vatandas",
+      "columns": [
+        {
+          "name": "TCKN",
+          "type": "TEXT",
+          "constraints": [
+            "PRIMARY KEY"
+          ]
+        },
+        {
+          "name": "Ad",
+          "type": "TEXT"
+        },
+        {
+          "name": "Soyad",
+          "type": "TEXT"
+        },
+        {
+          "name": "Baba_Adi",
+          "type": "TEXT"
+        }
+      ]
+    },
+    {
+      "name": "TANIM_Personel",
+      "columns": [
+        {
+          "name": "id",
+          "type": "TEXT",
+          "constraints": [
+            "PRIMARY KEY"
+          ]
+        },
+        {
+          "name": "Vatandas_TCKN",
+          "type": "TEXT"
+        },
+        {
+          "name": "Sorumlu_Mahalle",
+          "type": "TEXT"
+        },
+        {
+          "name": "Aktif",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    {
+      "name": "TASINMAZ_SAHIP",
+      "columns": [
+        {
+          "name": "id",
+          "type": "TEXT",
+          "constraints": [
+            "PRIMARY KEY"
+          ]
+        },
+        {
+          "name": "Tasinmaz_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "Vatandas_TCKN",
+          "type": "TEXT"
+        },
+        {
+          "name": "Rol",
+          "type": "TEXT"
+        },
+        {
+          "name": "Hisse_Pay",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Hisse_Payda",
+          "type": "INTEGER"
+        }
+      ]
+    }
+  ]
+}

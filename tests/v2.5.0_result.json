@@ -1,0 +1,26 @@
+{
+  "version": "2.5.0",
+  "timestamp": "2026-04-23T07:38:43.268Z",
+  "checks": [
+    {
+      "name": "Package Version",
+      "status": "PASSED",
+      "message": "Version is correctly set to 2.5.0"
+    },
+    {
+      "name": "SQL History Integrity",
+      "status": "PASSED",
+      "message": "v2.5.0.json exists and contains schema snapshot"
+    },
+    {
+      "name": "Mevki Automation Code",
+      "status": "PASSED",
+      "message": "LandService.ts contains required automation logic"
+    },
+    {
+      "name": "Schema Definition",
+      "status": "PASSED",
+      "message": "DATA_Mevki_Bilgisi table is defined in proposal"
+    }
+  ]
+}

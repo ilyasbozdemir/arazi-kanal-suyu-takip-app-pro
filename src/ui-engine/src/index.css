@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    /* 📱 Varsayılan olarak 0.875rem (14px) kullanarak başlıyoruz. 
+       Bu değer App.tsx üzerinden dinamik olarak (rem cinsinden) ezilecektir. */
+    font-size: 0.875rem;
+  }
+
+  @media (min-width: 1536px) {
+    html {
+      font-size: 1rem;
+    }
+  }
+
+  body {
+    @apply selection:bg-primary-100 selection:text-primary-900 bg-slate-50 dark:bg-slate-950;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-primary-500 text-white rounded-lg font-medium 
+           transition-all duration-200 hover:bg-primary-600 active:scale-95
+           shadow-sm hover:shadow-md flex items-center gap-2;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 p-4 sm:p-5
+           transition-all duration-300 hover:shadow-lg dark:hover:border-primary-500/30;
+  }
+  
+  .input {
+    @apply w-full px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 
+           bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-sm
+           focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500
+           transition-all duration-200 placeholder:text-slate-400;
+  }
+  
+  .sidebar-item {
+    @apply flex items-center gap-3 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl transition-all duration-200
+           text-slate-600 dark:text-slate-400 hover:bg-white dark:hover:bg-slate-800 
+           hover:text-primary-600 dark:hover:text-primary-400 hover:shadow-sm text-sm sm:text-base;
+  }
+  
+  .sidebar-item.active {
+    @apply bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 shadow-sm border border-slate-50 dark:border-slate-700;
+  }
+}
+
+@layer utilities {
+  .text-responsive-h1 {
+    font-size: clamp(1.1rem, 3.5vw, 2.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+  }
+  
+  .text-responsive-h2 {
+    font-size: clamp(1rem, 2.5vw, 1.875rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .text-responsive-p {
+    font-size: clamp(0.75rem, 1vw, 1rem);
+    line-height: 1.5;
+  }
+
+  .text-responsive-subtitle {
+    font-size: clamp(0.45rem, 0.8vw, 0.7rem);
+    letter-spacing: 0.15em;
+  }
+
+  .p-responsive {
+    padding: clamp(0.75rem, 2vw, 2rem);
+  }
+  
+  .gap-responsive {
+    gap: clamp(0.75rem, 2vw, 3rem);
+  }
+
+  .space-y-responsive > * + * {
+    margin-top: clamp(1rem, 3vw, 4rem);
+  }
+
+  /* Custom Title Bar Utilities */
+  .drag-region {
+    -webkit-app-region: drag;
+  }
+  .no-drag {
+    -webkit-app-region: no-drag;
+  }
+
+  /* 🛡️ DÜŞÜK DONANIM OPTİMİZASYONU (Low-End Hardware Overrides) */
+  body.performance-low * {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  body.performance-low .card {
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+  }
+
+  body.performance-low ::-webkit-scrollbar {
+    width: 10px;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400 transition-colors;
+}
+
+/* 🛡️ RESMİ BASKI VE PDF STANDARTLARI */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+
+  /* 🧹 Gereksizleri Süpür */
+  aside, 
+  nav, 
+  button, 
+  .no-print, 
+  header .relative.group, 
+  .fixed.inset-0 {
+    display: none !important;
+  }
+
+  /* 🏗️ Defteri Yay */
+  body {
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .flex-1.overflow-auto {
+    overflow: visible !important;
+  }
+
+  /* 📋 Defter Tablo Estetiği */
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+  }
+
+  th, td {
+    border: 1px solid #ddd !important;
+    padding: 8px !important;
+    font-size: 10px !important;
+    color: black !important;
+  }
+
+  th {
+    background-color: #f8f9fa !important;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* 🖋️ Yazı Tipi Sarsılmazlığı */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .text-primary-500 {
+    color: #3b82f6 !important;
+  }
+}

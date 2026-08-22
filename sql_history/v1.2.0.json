@@ -1,0 +1,9 @@
+{
+  "version": "1.1.0",
+  "migratedTo": "1.2.0",
+  "migrationDate": "2026-03-25",
+  "title": "Kurum Başkanlığı Tapu Entegrasyonu",
+  "description": "Taşınmaz malların dijital arşivi ve sahiplik ilişkileri kurgulandı.",
+  "notes": "Ada/Parsel bazlı sorgulama motoru ve alan (m2) hesaplama araçları sisteme entegre edildi.",
+  "changes": ["Tapu veri girişi", "M2 hesaplayıcı"]
+}

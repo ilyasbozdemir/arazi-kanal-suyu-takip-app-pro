@@ -1,0 +1,9 @@
+{
+  "version": "0.9.0",
+  "migratedTo": "1.0.0",
+  "migrationDate": "2026-03-21",
+  "title": "Kurum Başkanlığı Dijital Dönüşüm Başlangıcı",
+  "description": "Kurum sistemlerinin modernizasyonu için temel atıldı.",
+  "notes": "Kurum Başkanlığı için özelleştirilmiş veritabanı çekirdeği kuruldu. Proje yapısı Electron ve React tabanlı modern mimariye taşındı.",
+  "changes": ["Proje başlangıcı", "Veritabanı çekirdek kurulumu"]
+}

@@ -1,0 +1,9 @@
+{
+  "version": "1.6.0",
+  "migratedTo": "1.7.0",
+  "migrationDate": "2026-04-04",
+  "title": "Kurum Başkanlığı Raporlama 1.0",
+  "description": "Tüm verilerin Excel ve PDF formatında dışa aktarım motoru.",
+  "notes": "Dinamik rapor oluşturucu ve kurum standartlarına uygun dosya export sistemi geliştirildi.",
+  "changes": ["Excel Export", "PDF Raporlama"]
+}

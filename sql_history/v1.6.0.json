@@ -1,0 +1,9 @@
+{
+  "version": "1.5.1",
+  "migratedTo": "1.6.0",
+  "migrationDate": "2026-04-02",
+  "title": "Kurum Başkanlığı Makbuz Defterleri",
+  "description": "Tahsilat makbuz defterleri ve seri yönetimi modülü.",
+  "notes": "Seri/No bazlı makbuz takibi ve defter atama özellikleri sisteme sarsılmaz bir şekilde eklendi.",
+  "changes": ["Defter yönetimi", "Seri takibi"]
+}

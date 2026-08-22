@@ -1,0 +1,9 @@
+{
+  "version": "1.2.0",
+  "migratedTo": "1.2.1",
+  "migrationDate": "2026-03-26",
+  "title": "Kurum Başkanlığı Mahalle & Mevki",
+  "description": "Bölge bazlı sulama takibi için mahalle ve mevki tanımları.",
+  "notes": "Mahalle sınırları ve mevki bilgileri için sarsılmaz bir CRUD modülü yayına alındı.",
+  "changes": ["Mahalle yönetimi", "Mevki tanımları"]
+}

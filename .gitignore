@@ -1,0 +1,54 @@
+# Dependencies
+node_modules
+.pnpm-debug.log*
+
+# Build outputs
+dist
+out
+electronjs-out
+app.asar
+*.exe
+*.dmg
+*.AppImage
+*.deb
+*.rpm
+release
+
+# IDEs and Editors
+.vscode
+.idea
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Database and Data (Sensitive)
+*.db
+*.db-journal
+*.sqlite
+data/
+*.xlsx
+*.xls
+*.csv
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Electron specific
+.electron-builder
+.vite
+
+dist-release/
+/resources/netcad/
+*.geojson
+*.kml
+*.xml

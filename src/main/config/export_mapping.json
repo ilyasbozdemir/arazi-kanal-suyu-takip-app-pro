@@ -1,0 +1,95 @@
+{
+  "$schema": "../../EXPORT_GUIDE.md",
+  "yayla": {
+    "pageSetup": {
+      "orientation": "portrait",
+      "paperSize": 9,
+      "fitToPage": true,
+      "margins": { "left": 0.5, "right": 0.5, "top": 0.5, "bottom": 0.5, "header": 0.3, "footer": 0.3 },
+      "horizontalCentered": true,
+      "verticalCentered": false
+    },
+    "columnWidths": [10, 25, 20, 15, 15, 15, 20],
+    "rowHeights": {
+      "1": 30,
+      "2": 25,
+      "3": 20,
+      "data": 20
+    },
+    "rowsPerPage": 40,
+    "headerRowsCount": 4,
+    "merges": ["A1:G1", "A2:G2"],
+    "staticCells": [
+      { "at": "A1", "v": "GÜNEYURT KURUMSİ - SULAMA TAKİP SİSTEMİ", "style": { "bold": true, "size": 16, "align": "center" } },
+      { "at": "A2", "v": "{SOURCE_LABEL} - YAYLA DÖKÜMÜ", "style": { "bold": true, "size": 12, "align": "center" } },
+      { "at": "A4", "v": "SIRA", "style": { "bold": true, "align": "center" } },
+      { "at": "B4", "v": "AD SOYAD", "style": { "bold": true, "align": "center" } },
+      { "at": "C4", "v": "TCKN / SİCİL", "style": { "bold": true, "align": "center" } },
+      { "at": "D4", "v": "ADA/PARSEL", "style": { "bold": true, "align": "center" } },
+      { "at": "E4", "v": "SÜRE (SAAT)", "style": { "bold": true, "align": "center" } },
+      { "at": "F4", "v": "TUTAR (₺)", "style": { "bold": true, "align": "center" } },
+      { "at": "G4", "v": "AÇIKLAMA", "style": { "bold": true, "align": "center" } }
+    ],
+    "dataRows": {
+      "startRow": 5,
+      "mapping": {
+        "A": "row_index",
+        "B": "Ad_Soyad",
+        "C": "Vatandas_Id",
+        "D": "Ada_Parsel",
+        "E": "Sure_Saat",
+        "F": "Tutar",
+        "G": "Aciklama"
+      }
+    }
+  },
+  "mahalle": {
+    "pageSetup": {
+      "orientation": "landscape",
+      "paperSize": 9,
+      "fitToPage": true,
+      "margins": { "left": 0.3, "right": 0.3, "top": 0.5, "bottom": 0.5, "header": 0.3, "footer": 0.3 },
+      "horizontalCentered": true,
+      "verticalCentered": false
+    },
+    "columnWidths": [8, 25, 15, 12, 10, 10, 10, 10, 10, 20],
+    "rowHeights": {
+      "1": 35,
+      "2": 25,
+      "3": 20,
+      "data": 25
+    },
+    "rowsPerPage": 30,
+    "headerRowsCount": 4,
+    "merges": ["A1:J1", "A2:J2"],
+    "staticCells": [
+      { "at": "A1", "v": "GÜNEYURT KURUMSİ - MAHALLE DAĞITIM CETVELİ", "style": { "bold": true, "size": 18, "align": "center" } },
+      { "at": "A2", "v": "{SOURCE_LABEL} - {YEAR} SEZONU", "style": { "bold": true, "size": 14, "align": "center" } },
+      { "at": "A4", "v": "NO", "style": { "bold": true, "align": "center" } },
+      { "at": "B4", "v": "MÜKELLEF ADI SOYADI", "style": { "bold": true, "align": "center" } },
+      { "at": "C4", "v": "TC / SİCİL", "style": { "bold": true, "align": "center" } },
+      { "at": "D4", "v": "ADA/PARSEL", "style": { "bold": true, "align": "center" } },
+      { "at": "E4", "v": "MEVKİ", "style": { "bold": true, "align": "center" } },
+      { "at": "F4", "v": "HAK", "style": { "bold": true, "align": "center" } },
+      { "at": "G4", "v": "KULLANIM", "style": { "bold": true, "align": "center" } },
+      { "at": "H4", "v": "KALAN", "style": { "bold": true, "align": "center" } },
+      { "at": "I4", "v": "BORÇ", "style": { "bold": true, "align": "center" } },
+      { "at": "J4", "v": "İMZA / NOT", "style": { "bold": true, "align": "center" } }
+    ],
+    "dataRows": {
+      "startRow": 5,
+      "mapping": {
+        "A": "row_index",
+        "B": "Ad_Soyad",
+        "C": "Vatandas_Id",
+        "D": "Ada_Parsel",
+        "E": "Mevki",
+        "F": "Su_Hakki",
+        "G": "Toplam_Kullanim",
+        "H": { "formula": "F{row}-G{row}" },
+        "I": "Toplam_Borc",
+        "J": "EMPTY"
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "migratedTo": "1.1.0",
+  "migrationDate": "2026-03-23",
+  "title": "Kurum Başkanlığı Vatandaş Kütüğü",
+  "description": "Vatandaş verilerinin sarsılmaz bir disiplinle kayıt altına alınması sağlandı.",
+  "notes": "TCKN doğrulama algoritması ve Sicil No üretim motoru Kurum Başkanlığı standartlarına göre uyarlandı.",
+  "changes": ["TCKN kontrolü", "Sicil No üretimi"]
+}

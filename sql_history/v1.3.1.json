@@ -1,0 +1,9 @@
+{
+  "version": "1.3.0",
+  "migratedTo": "1.3.1",
+  "migrationDate": "2026-03-28",
+  "title": "Kurum Başkanlığı Harita Katmanları",
+  "description": "CBS üzerinde görsel katman yönetimi ve uydu görünümü.",
+  "notes": "Google Maps Uydu katmanı ve mahalle sınırlarını gösteren vektörel katman yönetimi eklendi.",
+  "changes": ["Katman yönetimi", "Uydu haritası entegrasyonu"]
+}

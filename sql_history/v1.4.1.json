@@ -1,0 +1,9 @@
+{
+  "version": "1.4.0",
+  "migratedTo": "1.4.1",
+  "migrationDate": "2026-03-30",
+  "title": "Kurum Başkanlığı Makbuz Yazdırma",
+  "description": "Tahsilat sonrası otomatik makbuz üretim motoru.",
+  "notes": "Kurum Başkanlığı yasal formatına uygun makbuz yazdırma ve PDF çıktı alma özelliği geliştirildi.",
+  "changes": ["Dinamik PDF motoru", "Makbuz şablonları"]
+}

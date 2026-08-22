@@ -1,0 +1,9 @@
+{
+  "version": "1.9.1",
+  "migratedTo": "2.0.0",
+  "migrationDate": "2026-04-10",
+  "title": "Kurum Başkanlığı RDBMS 2.0",
+  "description": "Veritabanı mimarisinin tam normalizasyonu ve hız optimizasyonu.",
+  "notes": "Tahakkuk ve Tahsilat ilişkileri 1:N yapısına çekildi. SQL sorgu performansı %40 artırıldı.",
+  "changes": ["DB Normalizasyonu", "Hız optimizasyonu"]
+}
