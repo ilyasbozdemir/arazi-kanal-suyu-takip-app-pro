@@ -33,7 +33,7 @@ export const AccountingKasaTable: React.FC<KasaTableProps> = ({
     <table className="w-full text-left">
       <thead>
         <tr className="border-b border-slate-50 dark:border-white/5">
-          <th className="p-6 text-[10px] font-black text-slate-400 uppercase">Kasa</th>
+          <th className="p-6 text-[10px] font-black text-slate-400 uppercase">TDHP Hesap / Kasa</th>
           <th className="p-6 text-[10px] font-black text-slate-400 uppercase text-right">Bakiye</th>
           <th className="p-6 text-[10px] font-black text-slate-400 uppercase text-right">İşlem</th>
         </tr>

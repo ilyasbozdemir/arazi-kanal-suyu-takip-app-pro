@@ -78,7 +78,7 @@ export const sendBackupInternal = async () => {
       Logger.info('MAIL_ENCRYPT', 'Veritabanı şifrelenerek pakete ekleniyor...');
       const fileBuffer = fs.readFileSync(dbPath);
       const encryptedBuffer = VaultService.encryptBuffer(fileBuffer, appPassword);
-      zip.addFile('KANAL_ARAZI_SUYU_TAKIPDB.db.enc', encryptedBuffer);
+      zip.addFile('arazi_sulama_takip.db.enc', encryptedBuffer);
     } else {
       zip.addLocalFile(dbPath);
     }
@@ -306,8 +306,8 @@ export const setupMailHandlers = () => {
       let dbBuffer: Buffer | null = null;
       let isEncrypted = false;
 
-      const encEntry = zipEntries.find(e => e.entryName === 'KANAL_ARAZI_SUYU_TAKIPDB.db.enc');
-      const plainEntry = zipEntries.find(e => e.entryName === 'KANAL_ARAZI_SUYU_TAKIPDB.db' || e.entryName.endsWith('.db'));
+      const encEntry = zipEntries.find(e => e.entryName === 'arazi_sulama_takip.db.enc' || e.entryName.endsWith('.db.enc'));
+      const plainEntry = zipEntries.find(e => e.entryName === 'arazi_sulama_takip.db' || e.entryName.endsWith('.db'));
 
       if (encEntry) {
         dbBuffer = encEntry.getData();

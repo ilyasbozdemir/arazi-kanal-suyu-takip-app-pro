@@ -50,12 +50,12 @@ export const getMenuItems = (deps: {
     },
     {
       id: 'mali_rapor',
-      label: "Ön Muhasebe  & Rapor",
+      label: "Strateji & Muhasebe Yönetimi",
       requiresAccounting: true,
       items: [
-        { label: "Ön Muhasebe  & Kasa", icon: DollarSign, onClick: () => addTab({ type: "accounting", title: "Ön Muhasebe " }), visibleIn: ['dagitim_oncesi', 'dagitim_sonrasi'] },
-        { label: "Tahakkuk & Tahsilat Takibi", icon: History, onClick: () => addTab({ type: "accounting", title: "Ön Muhasebe ", id: 'accounting-fisler' }), visibleIn: ['dagitim_oncesi', 'dagitim_sonrasi'] },
-        { label: "Makbuz Defterleri", icon: FileText, onClick: () => addTab({ type: "accounting", title: "Ön Muhasebe ", id: 'accounting-fisler' }), visibleIn: ['dagitim_oncesi', 'dagitim_sonrasi'] },
+        { label: "Strateji & Kasa Yönetimi", icon: DollarSign, onClick: () => addTab({ type: "accounting", title: "Muhasebe Yönetimi" }), visibleIn: ['dagitim_oncesi', 'dagitim_sonrasi'] },
+        { label: "Tahakkuk & Yevmiye Fişleri", icon: History, onClick: () => addTab({ type: "accounting", title: "Yevmiye Fişleri", id: 'accounting-fisler' }), visibleIn: ['dagitim_oncesi', 'dagitim_sonrasi'] },
+        { label: "Makbuz Defterleri", icon: FileText, onClick: () => addTab({ type: "accounting", title: "Makbuz Defterleri", id: 'accounting-fisler' }), visibleIn: ['dagitim_oncesi', 'dagitim_sonrasi'] },
         { label: "Ücret Tarifeleri", icon: Scale, onClick: () => addTab({ type: "pricingManagement", title: "Ücretler" }), visibleIn: ['dagitim_oncesi', 'dagitim_sonrasi'] },
         { label: "Vergi Oranları", icon: Percent, onClick: () => addTab({ type: "financeSettings", initialTab: 'tax', title: "Vergi Oranları" }), visibleIn: ['dagitim_oncesi', 'dagitim_sonrasi'] },
         { label: "Gecikme Zammı & Faiz", icon: TrendingUp, onClick: () => addTab({ type: "financeSettings", initialTab: 'interest', title: "Faiz Oranları" }), visibleIn: ['dagitim_oncesi', 'dagitim_sonrasi'] },

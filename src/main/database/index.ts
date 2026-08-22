@@ -39,7 +39,7 @@ export const TablePrefixLogic = {
 };
 
 export const schema = {
-  database: "KANAL_ARAZI_SUYU_TAKIPDB",
+  database: "arazi_sulama_takip",
   app_title: "KURUM BAŞKANLIĞI - KANAL VE ARAZİ SULAMA MODÜLÜ",
   developer: {
     name: "İlyas BOZDEMİR",

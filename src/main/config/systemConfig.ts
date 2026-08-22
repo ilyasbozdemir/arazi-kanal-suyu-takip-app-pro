@@ -1,5 +1,5 @@
 /**
- * 🛡️ GÜNEYURT KURUMSİ - SİSTEM KONFİGÜRASYON MERKEZİ
+ * 🛡️ KURUM BAŞKANLIĞI - STRATEJİ VE BÜTÇE SİSTEM MERKEZİ
  * Uygulama genelinde kullanılan sarsılmaz sabitler ve varsayılan yapılar.
  */
 export const SYSTEM_CONFIG = {
@@ -29,11 +29,11 @@ export const SYSTEM_CONFIG = {
     },
     { 
       id: 'kasa-kredi-karti', 
-      Hesap_Kodu: '108',
-      Kasa_Adi: '108 POS KREDİ KARTI HESABI', 
+      Hesap_Kodu: '109',
+      Kasa_Adi: '109 POS KREDİ KARTI HESABI', 
       Durum: 'AKTİF', 
       Sistem_Verisi: 1,
-      Aciklama: 'Kredi kartı ve dijital pos tahsilatlarının aktarıldığı TDHP 108 Kredi Kartı Hesabı.' 
+      Aciklama: 'Kredi kartı ve dijital pos tahsilatlarının aktarıldığı TDHP 109 Kredi Kartı Hesabı.' 
     },
     { 
       id: 'kasa-kurum-ana', 

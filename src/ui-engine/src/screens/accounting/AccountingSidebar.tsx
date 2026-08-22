@@ -57,7 +57,7 @@ export const AccountingSidebar: React.FC<SidebarProps> = ({
 
       <nav className="flex-1 p-3 space-y-1">
         {[
-          { id: 'kasa', label: 'Kasalar', icon: Wallet },
+          { id: 'kasa', label: 'Hesaplar & Kasalar', icon: Wallet },
           { id: 'personel', label: 'Personel', icon: Users },
           { id: 'transfer', label: 'Virman & POS', icon: ArrowRightLeft },
           { id: 'tahakkuklar', label: 'Tahakkuklar', icon: FileText },
