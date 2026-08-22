@@ -58,8 +58,8 @@ export function runPersonnelAndKasaSeeds(_db: Database) {
         console.log(`[KASA_SEED] ${kasa.Kasa_Adi} sarsılmaz bir nizamla ${zimmetId ? 'operatöre zimmetlenerek ' : ''}mühürlendi.`);
       } else {
         // 🛡️ Mevcut kayıtları TDHP hesap kodu, zimmet ve sistem flag'i ile güncelle
-        _db.prepare("UPDATE TANIM_Kasalar SET Hesap_Kodu = COALESCE(?, Hesap_Kodu), Sistem_Verisi = 1, Zimmet_id = COALESCE(?, Zimmet_id) WHERE id = ?")
-          .run((kasa as any).Hesap_Kodu || null, zimmetId, kasa.id);
+        _db.prepare("UPDATE TANIM_Kasalar SET Kasa_Adi = ?, Hesap_Kodu = ?, Sistem_Verisi = 1, Zimmet_id = COALESCE(?, Zimmet_id) WHERE id = ?")
+          .run(kasa.Kasa_Adi, (kasa as any).Hesap_Kodu || '100', zimmetId, kasa.id);
       }
     }
   } catch (e: any) {

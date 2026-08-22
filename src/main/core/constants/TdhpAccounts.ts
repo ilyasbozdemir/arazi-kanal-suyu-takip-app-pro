@@ -55,31 +55,21 @@ export const TDHP_CLASSES = [
 
 export const TDHP_MAIN_ACCOUNTS: TdhpAccount[] = [
   // 1XX - DÖNEN VARLIKLAR
-  { code: '100', name: 'KASA HESABI', type: 'aktif', classCode: '1', isMainAccount: true },
-  { code: '100.01', name: 'Merkez Nakit Kasası', type: 'aktif', classCode: '1', parentCode: '100', isMainAccount: false },
-  { code: '100.02', name: 'Vezne Kasiyer Kasası', type: 'aktif', classCode: '1', parentCode: '100', isMainAccount: false },
-  
-  { code: '101', name: 'ALINAN ÇEKLER', type: 'aktif', classCode: '1', isMainAccount: true },
-  { code: '102', name: 'BANKALAR', type: 'aktif', classCode: '1', isMainAccount: true },
-  { code: '102.01', name: 'Banka Vadesiz Mevduat Hesabı', type: 'aktif', classCode: '1', parentCode: '102', isMainAccount: false },
-  
-  { code: '108', name: 'DİĞER HAZIR DEĞERLER', type: 'aktif', classCode: '1', isMainAccount: true },
-  { code: '109', name: 'KREDİ KARTLARI / POS TAHSİLAT HESABI', type: 'aktif', classCode: '1', isMainAccount: true },
-  { code: '109.01', name: 'POS Kredi Kartı Tahsilat Kasası', type: 'aktif', classCode: '1', parentCode: '109', isMainAccount: false },
-  
-  { code: '120', name: 'ALICILAR / HİZMET ALANLAR', type: 'aktif', classCode: '1', isMainAccount: true },
-  { code: '120.01', name: 'Vatandaş / Müşteri Hizmet Alacakları', type: 'aktif', classCode: '1', parentCode: '120', isMainAccount: false },
+  { code: '100', name: '100 KASA HESABI', type: 'aktif', classCode: '1', isMainAccount: true, description: 'Nakit Tahsilat ve Kasiyer Vezne Hesabı' },
+  { code: '101', name: '101 ALINAN ÇEKLER', type: 'aktif', classCode: '1', isMainAccount: true },
+  { code: '102', name: '102 BANKALAR', type: 'aktif', classCode: '1', isMainAccount: true, description: 'Banka Vadesiz Mevduat Hesabı' },
+  { code: '108', name: '108 DİĞER HAZIR DEĞERLER (POS / KREDİ KARTI)', type: 'aktif', classCode: '1', isMainAccount: true, description: 'Kredi Kartı ve POS Tahsilat Hesabı' },
+  { code: '120', name: '120 ALICILAR / HİZMET ALANLAR', type: 'aktif', classCode: '1', isMainAccount: true, description: 'Vatandaş / Müşteri Hizmet Alacakları' },
   
   // 3XX - KISA VADELİ YABANCI KAYNAKLAR
-  { code: '320', name: 'SATICILAR / TEDARİKÇİLER', type: 'pasif', classCode: '3', isMainAccount: true },
-  { code: '335', name: 'PERSONELE BORÇLAR', type: 'pasif', classCode: '3', isMainAccount: true },
+  { code: '320', name: '320 SATICILAR / TEDARİKÇİLER', type: 'pasif', classCode: '3', isMainAccount: true },
+  { code: '335', name: '335 PERSONELE BORÇLAR', type: 'pasif', classCode: '3', isMainAccount: true },
 
   // 6XX - GELİR TABLOSU HESAPLARI
-  { code: '600', name: 'YURTİÇİ SATIŞLAR / HİZMET GELİRLERİ', type: 'gelir', classCode: '6', isMainAccount: true },
-  { code: '600.01', name: 'Arazi & Su Tahsilat Gelirleri', type: 'gelir', classCode: '6', parentCode: '600', isMainAccount: false },
-  { code: '602', name: 'DİĞER GELİRLER', type: 'gelir', classCode: '6', isMainAccount: true },
+  { code: '600', name: '600 YURTİÇİ SATIŞLAR / HİZMET GELİRLERİ', type: 'gelir', classCode: '6', isMainAccount: true, description: 'Arazi & Su Kullanım Gelirleri' },
+  { code: '602', name: '602 DİĞER GELİRLER', type: 'gelir', classCode: '6', isMainAccount: true },
 
   // 7XX - GİDER HESAPLARI
-  { code: '740', name: 'HİZMET ÜRETİM MALİYETİ', type: 'gider', classCode: '7', isMainAccount: true },
-  { code: '770', name: 'GENEL YÖNETİM GİDERLERİ', type: 'gider', classCode: '7', isMainAccount: true },
+  { code: '740', name: '740 HİZMET ÜRETİM MALİYETİ', type: 'gider', classCode: '7', isMainAccount: true },
+  { code: '770', name: '770 GENEL YÖNETİM GİDERLERİ', type: 'gider', classCode: '7', isMainAccount: true },
 ];
