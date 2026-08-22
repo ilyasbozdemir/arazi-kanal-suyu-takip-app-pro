@@ -43,6 +43,9 @@ export const AccountingKasaTable: React.FC<KasaTableProps> = ({
           <tr key={k.id} className="hover:bg-slate-50 dark:hover:bg-white/5 transition-colors group">
             <td className="p-6">
               <div className="flex items-center gap-3 mb-1">
+                <span className="text-[10px] font-black px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 font-mono">
+                  {k.Hesap_Kodu || '100.01'}
+                </span>
                 <span className="font-bold text-sm text-slate-800 dark:text-white uppercase">{k.Kasa_Adi}</span>
                 <span className={`text-[8px] font-black px-2 py-0.5 rounded-full border ${k.Kasa_Tipi === 'BANKA' ? 'bg-indigo-500/10 text-indigo-500 border-indigo-500/20' : 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20'}`}>
                    {k.Kasa_Tipi === 'BANKA' ? '🏦 BANKA / POS' : '💵 NAKİT KASA'}

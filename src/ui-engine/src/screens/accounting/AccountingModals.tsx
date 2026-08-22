@@ -128,17 +128,31 @@ export const AccountingModals: React.FC<ModalsProps> = ({
               <div className="p-8 space-y-6 overflow-y-auto custom-scrollbar">
                 {activeSubTab === 'kasa' ? (
                   <>
-                    <div className="space-y-1">
-                      <label htmlFor="kasa-adi" className="text-[9px] font-black text-slate-400 uppercase tracking-widest ml-1">Kasa / Banka Tanımı</label>
-                      <input 
-                        id="kasa-adi"
-                        title="Kasa Adı"
-                        type="text" 
-                        value={newKasa.Kasa_Adi} 
-                        onChange={e => setNewKasa({...newKasa, Kasa_Adi: e.target.value})} 
-                        placeholder="Örn: Nakit Kasası veya Ziraat Bankası POS"
-                        className="w-full p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl text-sm font-bold border-none outline-none focus:ring-2 ring-primary-500/20" 
-                      />
+                    <div className="grid grid-cols-3 gap-4">
+                      <div className="col-span-1 space-y-1">
+                        <label htmlFor="kasa-hesap-kodu" className="text-[9px] font-black text-amber-500 uppercase tracking-widest ml-1">TDHP Hesap Kodu</label>
+                        <input 
+                          id="kasa-hesap-kodu"
+                          title="Hesap Kodu"
+                          type="text" 
+                          value={newKasa.Hesap_Kodu || ''} 
+                          onChange={e => setNewKasa({...newKasa, Hesap_Kodu: e.target.value})} 
+                          placeholder="100.01"
+                          className="w-full p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl text-sm font-black font-mono border-none outline-none focus:ring-2 ring-amber-500/20" 
+                        />
+                      </div>
+                      <div className="col-span-2 space-y-1">
+                        <label htmlFor="kasa-adi" className="text-[9px] font-black text-slate-400 uppercase tracking-widest ml-1">Kasa / Banka Tanımı</label>
+                        <input 
+                          id="kasa-adi"
+                          title="Kasa Adı"
+                          type="text" 
+                          value={newKasa.Kasa_Adi} 
+                          onChange={e => setNewKasa({...newKasa, Kasa_Adi: e.target.value})} 
+                          placeholder="Örn: 100.01 Merkez Nakit Kasası"
+                          className="w-full p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl text-sm font-bold border-none outline-none focus:ring-2 ring-primary-500/20" 
+                        />
+                      </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-1">
@@ -393,7 +407,7 @@ export const AccountingModals: React.FC<ModalsProps> = ({
                   <h3 className="font-black text-slate-800 dark:text-white uppercase italic tracking-tighter">TAHSİLAT TESCİLİ</h3>
                   <div className="flex items-center gap-2 mt-1">
                      <User size={10} className="text-primary-500" />
-                     <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{profile?.fullName || 'SİSTEM OPERATÖRÜ'} / {profile?.tckn || '00000000000'}</span>
+                     <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{(profile as any)?.name || (profile as any)?.fullName || 'SİSTEM OPERATÖRÜ'} / {(profile as any)?.citizenId || (profile as any)?.tckn || '00000000000'}</span>
                   </div>
                 </div>
                 <button title="Kapat" onClick={() => setIsTahsilatModalOpen?.(false)} className="p-2 hover:bg-slate-100 dark:hover:bg-white/5 rounded-xl transition-all">

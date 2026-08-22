@@ -63,10 +63,10 @@ export const TKGMPanel: React.FC<TKGMPanelProps> = ({ initialAda, initialParsel,
       const res = await (window as any).api.tkgm.getDistricts(provinceId)
       if (res?.success) {
         setDistricts(res.data || [])
-        const merkez-ilce = (res.data || []).find((d: any) => (d.ad || '').toLocaleUpperCase('tr-TR').includes('MERKEZ İLÇE'))
-        if (merkez-ilce) {
-          setSelectedDistrict(merkez-ilce.id)
-          const mRes = await (window as any).api.tkgm.getNeighborhoods(merkez-ilce.id)
+        const merkezIlce = (res.data || []).find((d: any) => (d.ad || '').toLocaleUpperCase('tr-TR').includes('MERKEZ İLÇE'))
+        if (merkezIlce) {
+          setSelectedDistrict(merkezIlce.id)
+          const mRes = await (window as any).api.tkgm.getNeighborhoods(merkezIlce.id)
           if (mRes?.success) {
             setNeighborhoods(mRes.data || [])
             const gy = (mRes.data || []).find((n: any) => 

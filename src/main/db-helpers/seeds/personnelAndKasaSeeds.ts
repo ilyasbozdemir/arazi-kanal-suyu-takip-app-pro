@@ -9,10 +9,12 @@ export function runPersonnelAndKasaSeeds(_db: Database) {
     const hasDurum = tableInfo.some(c => c.name === 'Durum');
     const hasAciklama = tableInfo.some(c => c.name === 'Aciklama');
     const hasSistemVerisi = tableInfo.some(c => c.name === 'Sistem_Verisi');
+    const hasHesapKodu = tableInfo.some(c => c.name === 'Hesap_Kodu');
 
     if (!hasDurum) _db.prepare("ALTER TABLE TANIM_Kasalar ADD COLUMN Durum TEXT DEFAULT 'AKTİF'").run();
     if (!hasAciklama) _db.prepare("ALTER TABLE TANIM_Kasalar ADD COLUMN Aciklama TEXT").run();
     if (!hasSistemVerisi) _db.prepare("ALTER TABLE TANIM_Kasalar ADD COLUMN Sistem_Verisi INTEGER DEFAULT 0").run();
+    if (!hasHesapKodu) _db.prepare("ALTER TABLE TANIM_Kasalar ADD COLUMN Hesap_Kodu TEXT").run();
 
     const OPERATOR_TCKN = SYSTEM_CONFIG.OPERATOR_TCKN;
     
@@ -45,19 +47,19 @@ export function runPersonnelAndKasaSeeds(_db: Database) {
     // 3. Kasaları Senkronize Et (Config'den Çekerek)
     for (const kasa of SYSTEM_CONFIG.DEFAULT_KASALAR) {
       const exists = _db.prepare("SELECT id FROM TANIM_Kasalar WHERE id = ?").get(kasa.id);
-      // Zimmet sadece nakit kasasına verilir (veya kasanın tipine göre karar verilir)
-      const zimmetId = kasa.id.includes('nakit') ? personelId : null;
+      // Zimmet sadece nakit/kasiyer kasasına verilir
+      const zimmetId = (kasa.id.includes('nakit') || kasa.id.includes('zimmet')) ? personelId : null;
 
       if (!exists) {
         _db.prepare(`
-          INSERT INTO TANIM_Kasalar (id, Kasa_Adi, Durum, Zimmet_id, Aciklama, Sistem_Verisi, created_at, updated_at) 
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        `).run(kasa.id, kasa.Kasa_Adi, kasa.Durum, zimmetId, kasa.Aciklama, kasa.Sistem_Verisi, new Date().toISOString(), new Date().toISOString());
+          INSERT INTO TANIM_Kasalar (id, Hesap_Kodu, Kasa_Adi, Durum, Zimmet_id, Aciklama, Sistem_Verisi, created_at, updated_at) 
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `).run(kasa.id, (kasa as any).Hesap_Kodu || '', kasa.Kasa_Adi, kasa.Durum, zimmetId, kasa.Aciklama, kasa.Sistem_Verisi, new Date().toISOString(), new Date().toISOString());
         console.log(`[KASA_SEED] ${kasa.Kasa_Adi} sarsılmaz bir nizamla ${zimmetId ? 'operatöre zimmetlenerek ' : ''}mühürlendi.`);
       } else {
-        // 🛡️ Mevcut kayıtları zimmet ve sistem flag'i ile güncelle
-        _db.prepare("UPDATE TANIM_Kasalar SET Sistem_Verisi = 1, Zimmet_id = COALESCE(?, Zimmet_id) WHERE id = ?")
-          .run(zimmetId, kasa.id);
+        // 🛡️ Mevcut kayıtları TDHP hesap kodu, zimmet ve sistem flag'i ile güncelle
+        _db.prepare("UPDATE TANIM_Kasalar SET Hesap_Kodu = COALESCE(?, Hesap_Kodu), Sistem_Verisi = 1, Zimmet_id = COALESCE(?, Zimmet_id) WHERE id = ?")
+          .run((kasa as any).Hesap_Kodu || null, zimmetId, kasa.id);
       }
     }
   } catch (e: any) {

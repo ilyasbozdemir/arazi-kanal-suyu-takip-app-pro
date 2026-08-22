@@ -17,28 +17,39 @@ export const SYSTEM_CONFIG = {
     citizenId: '00000000000'
   },
 
-  // 🛡️ Kurumsal Kasa Altyapısı
+  // 🛡️ Kurumsal Kasa Altyapısı (TDHP Tek Düzen Hesap Planı Uyumlu)
   DEFAULT_KASALAR: [
     { 
       id: 'kasa-nakit-zimmet', 
-      Kasa_Adi: 'ZİMMETLİ NAKİT KASASI', 
+      Hesap_Kodu: '100.02',
+      Kasa_Adi: '100.02 VEZNE KASİYER KASASI (ZİMMETLİ)', 
       Durum: 'AKTİF', 
       Sistem_Verisi: 1,
-      Aciklama: 'Operatörün sarsılmaz sorumluluğundaki günlük nakit havuzu.' 
+      Aciklama: 'Kasiyer/Veznedar zimmetindeki günlük TDHP 100.02 nakit havuzu.' 
     },
     { 
       id: 'kasa-kredi-karti', 
-      Kasa_Adi: 'KREDİ KARTI / POS KASASI', 
+      Hesap_Kodu: '109.01',
+      Kasa_Adi: '109.01 POS KREDİ KARTI TAHSİLAT KASASI', 
       Durum: 'AKTİF', 
       Sistem_Verisi: 1,
-      Aciklama: 'Dijital tahsilatların tescil edildiği resmi POS kasası.' 
+      Aciklama: 'Dijital tahsilatların tescil edildiği TDHP 109.01 POS kredi kartı kasası.' 
     },
     { 
       id: 'kasa-kurum-ana', 
-      Kasa_Adi: 'KURUM ANA TAHSİLAT KASASI', 
+      Hesap_Kodu: '100.01',
+      Kasa_Adi: '100.01 MERKEZ NAKİT KASASI', 
       Durum: 'AKTİF', 
       Sistem_Verisi: 1,
-      Aciklama: 'Kurumsal ana havuz ve genel bütçe kasası.' 
+      Aciklama: 'Kurumsal ana havuz ve TDHP 100.01 merkez nakit kasası.' 
+    },
+    {
+      id: 'kasa-banka-mevduat',
+      Hesap_Kodu: '102.01',
+      Kasa_Adi: '102.01 BANKA MEVDUAT HESABI',
+      Durum: 'AKTİF',
+      Sistem_Verisi: 1,
+      Aciklama: 'Kurum banka vadesiz mevduat hesabı.'
     }
   ]
 };

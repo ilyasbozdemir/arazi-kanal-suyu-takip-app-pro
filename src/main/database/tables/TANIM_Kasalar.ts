@@ -12,7 +12,8 @@ export const TANIM_Kasalar = defineTable({
     { name: 'Konum', type: 'TEXT' },
     { name: 'Zimmet_id', type: 'TEXT', constraints: ['REFERENCES TANIM_Personel(id)'] },
     { name: 'Durum', type: 'TEXT', constraints: ["DEFAULT 'AKTİF'"] },
-    { name: 'Aciklama', type: 'TEXT' },
+    { name: 'Hesap_Kodu', type: 'TEXT' },
+    { name: 'Hesap_Turu', type: 'TEXT' },
     { name: 'Sistem_Verisi', type: 'INTEGER', constraints: ['DEFAULT 0'] }
   ]
 });
