@@ -151,46 +151,35 @@ export const AccountingModals: React.FC<ModalsProps> = ({
                   ? (
                     <>
                       <div className="space-y-1">
-                        <label
-                          htmlFor="kasa-hesap-kodu"
-                          className="text-[9px] font-black text-amber-500 uppercase tracking-widest ml-1"
-                        >
-                          TDHP Hesap Kodu & Sınıfı
-                        </label>
-                        <select
+                        <div className="flex items-center justify-between">
+                          <label
+                            htmlFor="kasa-hesap-kodu"
+                            className="text-[9px] font-black text-amber-500 uppercase tracking-widest ml-1"
+                          >
+                            TDHP Hesap Kodu (3. Düzey / Muavin Kodu)
+                          </label>
+                          <div className="flex gap-1">
+                            {['100.01.001', '109.01.001', '102.01.001'].map(code => (
+                              <button
+                                key={code}
+                                type="button"
+                                onClick={() => setNewKasa({ ...newKasa, Hesap_Kodu: code, Kasa_Tipi: code.startsWith('100') ? 'NAKİT' : 'BANKA' })}
+                                className="px-2 py-0.5 bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded text-[9px] font-mono font-black hover:bg-amber-500 hover:text-white transition-all"
+                              >
+                                {code.split('.')[0]}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                        <input
                           id="kasa-hesap-kodu"
                           title="TDHP Hesap Kodu"
-                          value={newKasa.Hesap_Kodu || "100"}
-                          onChange={(e) => {
-                            const code = e.target.value;
-                            let defaultName = newKasa.Kasa_Adi;
-                            if (code === "100") {
-                              defaultName = "100 KASA HESABI (NAKİT VEZNE)";
-                            }
-                            if (code === "109") {defaultName =
-                                "109 POS KREDİ KARTI HESABI";}
-                            if (code === "102") {
-                              defaultName = "102 BANKA MEVDUAT HESABI";
-                            }
-                            setNewKasa({
-                              ...newKasa,
-                              Hesap_Kodu: code,
-                              Kasa_Adi: defaultName,
-                              Kasa_Tipi: code === "100" ? "NAKİT" : "BANKA",
-                            });
-                          }}
+                          type="text"
+                          value={newKasa.Hesap_Kodu || '100.01.001'}
+                          onChange={(e) => setNewKasa({ ...newKasa, Hesap_Kodu: e.target.value, Kasa_Tipi: e.target.value.startsWith('100') ? 'NAKİT' : 'BANKA' })}
+                          placeholder="Örn: 100.01.001"
                           className="w-full p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl text-sm font-black font-mono border-none outline-none focus:ring-2 ring-amber-500/20"
-                        >
-                          <option value="100">100 — KASA HESABI (NAKİT VEZNE)</option>
-                          <option value="100.01">100.01 — MERKEZ NAKİT VEZNE KASASI</option>
-                          <option value="109">109 — POS KREDİ KARTI TAHSİLAT HESABI</option>
-                          <option value="109.01">109.01 — POS KREDİ KARTI KASASI</option>
-                          <option value="102">102 — BANKA MEVDUAT HESABI</option>
-                          <option value="102.01">102.01 — VADESİZ BANKA MEVDUAT HESABI</option>
-                          <option value="120">120 — ALICILAR / CARİ SU ALACAKLARI HESABI</option>
-                          <option value="121">121 — ALACAK SENETLERİ (TAKSİTLİ BORÇLAR)</option>
-                          <option value="128">128 — ŞÜPHELİ HİZMET ALACAKLARI (İCRALIK/TAKİPLİ)</option>
-                        </select>
+                        />
                       </div>
 
                       <div className="grid grid-cols-2 gap-4">

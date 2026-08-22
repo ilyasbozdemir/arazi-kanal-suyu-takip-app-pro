@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Info, Clock, MapPin, Layers, User, Activity, DollarSign, CheckCircle2, CreditCard } from 'lucide-react';
+import { Info, Clock, MapPin, Layers, User, Activity, DollarSign, CheckCircle2, CreditCard, Printer } from 'lucide-react';
 import * as Popover from '@radix-ui/react-popover';
 import { ElectronService } from '../../services/ElectronService';
 
 interface FisTableProps {
   fisler: any[];
   onMutabakat?: (fis: any) => void;
+  onPrintOdemeEmri?: (fis: any) => void;
 }
 
 const DistributionDetailPopover: React.FC<{ fisId: string }> = ({ fisId }) => {
@@ -123,7 +124,7 @@ const DistributionDetailPopover: React.FC<{ fisId: string }> = ({ fisId }) => {
   );
 };
 
-export const AccountingFisTable: React.FC<FisTableProps> = ({ fisler, onMutabakat }) => {
+export const AccountingFisTable: React.FC<FisTableProps> = ({ fisler, onMutabakat, onPrintOdemeEmri }) => {
   return (
     <table className="w-full text-left">
       <thead>
@@ -218,6 +219,15 @@ export const AccountingFisTable: React.FC<FisTableProps> = ({ fisler, onMutabaka
                          {f.Odeme_Yontemi === 'KREDİ KARTI' ? <CreditCard size={16} /> : <DollarSign size={16} />}
                       </button>
                     )}
+                     {onPrintOdemeEmri && (
+                       <button
+                         title="Resmi Ödeme Emri Belgesi (A4) Yazdır"
+                         onClick={() => onPrintOdemeEmri(f)}
+                         className="p-2 bg-amber-500/10 text-amber-600 dark:text-amber-400 hover:bg-amber-500 hover:text-white rounded-xl transition-all"
+                       >
+                         <Printer size={16} />
+                       </button>
+                     )}
                     <div className="p-2 bg-emerald-500/10 text-emerald-500 rounded-xl" title={f.Durum === 'Ödendi' || f.Durum === 'TESCİL EDİLDİ' ? 'Ödeme Tamamlandı' : 'İşlem Kapalı'}>
                         <CheckCircle2 size={16} />
                     </div>

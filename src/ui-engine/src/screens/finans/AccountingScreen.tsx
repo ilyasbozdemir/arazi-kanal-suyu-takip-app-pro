@@ -17,6 +17,7 @@ import { AccountingTransferForm } from '../accounting/AccountingTransferForm';
 import { AccountingModals } from '../accounting/AccountingModals';
 import { AccountingMovementModal } from '../accounting/AccountingMovementModal';
 import { AccountingZTable } from '../accounting/AccountingZTable';
+import { OdemeEmriModal } from '../../components/modals/OdemeEmriModal';
 
 interface AccountingScreenProps {
   addTab?: (tab: any) => void;
@@ -49,6 +50,22 @@ export const AccountingScreen: React.FC<AccountingScreenProps> = ({ addTab, init
   const [isTahsilatModalOpen, setIsTahsilatModalOpen] = useState(false);
   const [tahsilatItem, setTahsilatItem] = useState<any>(null);
   const [tahsilatForm, setTahsilatForm] = useState({ kasaId: '', method: 'NAKİT' });
+  const [isOdemeEmriOpen, setIsOdemeEmriOpen] = useState(false);
+  const [odemeEmriData, setOdemeEmriData] = useState<any>({});
+
+  const handleOpenOdemeEmri = (fis: any) => {
+    setOdemeEmriData({
+      yevmiyeNo: fis.Fis_No || `YEV-${fis.id?.substring(0, 6)}`,
+      yevmiyeTarihi: new Date(fis.Tarih || Date.now()).toLocaleDateString('tr-TR'),
+      butceYili: new Date(fis.Tarih || Date.now()).getFullYear().toString(),
+      yukleniciFirma: (fis.Ad || fis.Soyad) ? `${fis.Ad || ''} ${fis.Soyad || ''}` : 'SİSTEM MÜKELLEFİ',
+      yukleniciVergiNo: fis.TCKN || '00000000000',
+      brutTutar: fis.Tutar || fis.Miktar || 0,
+      aciklama: fis.Aciklama || 'Bütçe Hizmet Üretim Harcaması',
+      odemeEmriBelgeNo: `OEM-${new Date().getFullYear()}/${fis.id?.substring(0, 4) || '001'}`
+    });
+    setIsOdemeEmriOpen(true);
+  };
 
   const loadData = async () => {
     setIsLoading(true);
@@ -514,11 +531,13 @@ export const AccountingScreen: React.FC<AccountingScreenProps> = ({ addTab, init
                           return statusMatch && searchMatch;
                         })} 
                         onMutabakat={handleOpenTahsilatModal} 
+                        onPrintOdemeEmri={handleOpenOdemeEmri}
                       />
                     )}
                     {activeSubTab === 'fisler' && (
                       <AccountingFisTable 
                         fisler={fisler} 
+                        onPrintOdemeEmri={handleOpenOdemeEmri}
                       />
                     )}
                     {activeSubTab === 'zraporu' && (
@@ -647,7 +666,12 @@ export const AccountingScreen: React.FC<AccountingScreenProps> = ({ addTab, init
         handleSaveTahsilat={handleSaveTahsilat}
       />
 
-      {/* Hareketler Modal'ı kaldırıldı, sekme (inline) gösterimi kullanılıyor. */}
+      {/* 📜 RESMİ ÖDEME EMRİ BELGESİ A4 MODALI */}
+      <OdemeEmriModal 
+        isOpen={isOdemeEmriOpen}
+        onClose={() => setIsOdemeEmriOpen(false)}
+        data={odemeEmriData}
+      />
 
     </div>
   );
